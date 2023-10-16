@@ -1,51 +1,110 @@
-public class Product
+abstract public class AProduct
 {
-    public string name;
-    public int quantli;
+    public int quantity;
    
+    public bool consume(int num)
+    {
+        if(quantity > num)
+        {
+            quantity -= num;
+            return true
+        } else if {
+            return false;
+        }
+    }
 };
-public  class PerishableProduct : Product
+public  class PerishableProduct : AProduct
 {
     public string expiration_date;
 
 }
-public class CoffeeProduct :PerishableProduct
+public class CoffeeProduct : PerishableProduct
  {
     public string region;
     public string roasting_date;
 }
-public class Products : Product
+public class Product : AProduct
 {
-    public string manufacture date;
+    public string manufacture_date;
 }
 
 public class Roaster
 {
-    public string name;
-    public string roast_coffee(Product green_coffe)
+    public CoffeeProduct roast_coffee(PerishableProduct green_coffee, int num)
     {
+        private int roasting_amount;
 
-
-        return green_coffe;
-
+        if((num <= roasting_amount) && green_coffee.consume(num))
+        {
+            CoffeeProduct roasted_coffee();
+            return roasted_coffee;
+        }   
+        else {return false;}
     }
 }
 public class Goods
 {
-    public string name;
     public int number_ready;
     public int price;
-    public int produce();
+    private AProduct[] consumable_products;
+
+    public int produce(int num)
+    {
+        int produced;
+        for (int produced = 0; produced < num; i++)
+        {
+            produced += consumable_products.consume();
+        }
+        
+        return produced;
+    }
+
+    public bool consume(int num)
+    {
+        if(number_ready > num)
+        {
+            number_ready -= num;
+            return true;
+        } else if {
+            return false;
+        }
+    }
 }
 
 public class Catalogue
 {
-
+    private Goods[] goods;
+    
+    public bool sell(int num)
+    {
+        if()
+        {
+            goods.consume();
+        } else {
+            goods.produce();
+        }
+    }
 }
 
 public class Order
 {
     public string client_name;
+    public string invoice;
     public int invoice_price;
 
+    public bool pay(){}
+
+}
+
+public class CoffeeShop
+{
+    private Catalogue catalogue;
+    private Order[] orders;
+
+    public Order CreateOrder()
+    {
+        private Order order;
+        
+        return order;
+    }
 }
