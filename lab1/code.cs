@@ -51,9 +51,10 @@ public class Goods
     public int produce(int num)
     {
         int produced;
+        int[] required;
         for (int produced = 0; produced < num; i++)
         {
-            produced += consumable_products.consume();
+            produced += consumable_products[].consume(required[]);
         }
         
         return produced;
@@ -88,9 +89,10 @@ public class Catalogue
 
 public class Order
 {
-    public string client_name;
-    public string invoice;
-    public int invoice_price;
+    private string client_name;
+    private string invoice;
+    private int invoice_price;
+    public bool is_payed;
 
     public bool pay(){}
 
