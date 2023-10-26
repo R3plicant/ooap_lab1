@@ -48,29 +48,34 @@ public class Goods
     public int price;
     private AProduct[] consumable_products;
 
-    public int produce(int num)
-    {
-        int produced;
-        int[] required;
-        for (int produced = 0; produced < num; i++)
-        {
-            produced += consumable_products[].consume(required[]);
-        }
-        
-        return produced;
-    }
-
-    public bool consume(int num)
+    public bool process(int num)
     {
         if(number_ready > num)
         {
             number_ready -= num;
             return true;
-        } else if {
-            return false;
+        } 
+        else 
+        {
+            int produced = 0;
+            int[] required;
+            for (int i = 0; i < num; i++)
+            {
+                if(consumable_products[i].consume(required[i]))
+                {
+                    produced++;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            number_ready += produced;
+            return true;
         }
     }
 }
+
 
 public class Catalogue
 {
@@ -80,10 +85,13 @@ public class Catalogue
     {
         if()
         {
-            goods.consume();
+            goods[].consume(num);
+        } else if(){
+            goods[].produce(num);
         } else {
-            goods.produce();
+          return false;  
         }
+        return true;
     }
 }
 
