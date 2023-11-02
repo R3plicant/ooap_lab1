@@ -4,7 +4,7 @@ abstract public class AProduct
    
     public bool consume(int num)
     {
-        if(quantity > num)
+        if(quantity >= num)
         {
             quantity -= num;
             return true
@@ -61,12 +61,13 @@ public class Goods
             int[] required;
             for (int i = 0; i < num; i++)
             {
-                if(consumable_products[i].consume(required[i]))
+                if(consumable_products[].consume(required[]))
                 {
                     produced++;
                 }
                 else
                 {
+                    number_ready += produced;
                     return false;
                 }
             }
@@ -83,15 +84,7 @@ public class Catalogue
     
     public bool sell(int num)
     {
-        if()
-        {
-            goods[].consume(num);
-        } else if(){
-            goods[].produce(num);
-        } else {
-          return false;  
-        }
-        return true;
+        return goods[].process(num);
     }
 }
 
